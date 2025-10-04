@@ -2,119 +2,111 @@
          📱 KINGDOM BARBER - API
 ======================================================================
 
-🗓️ **Documentación: API - Kingdom Barber - ITM**  
-📅 **Fecha:** Octubre, 2025  
-👥 **Autores:** Juan Rivera, Oscar 
+🗓️ **Documentación Técnica: Kingdom Barber - API**  
+📅 **Última actualización:** Octubre 2025  
+👥 **Autores:** Juan Rivera, Oscar
 
-Este repositorio contiene el código del **back-end** para todo el ecosistema de Kingdom Barber.  
-Es una **API RESTful** desarrollada con **Java y Spring Boot**, que actúa como el cerebro y la **única fuente de verdad**.
+Este repositorio contiene el código fuente del **backend** para el ecosistema digital de Kingdom Barber.  
+Se trata de una **API RESTful** desarrollada con **Java + Spring Boot**, que funciona como el **núcleo central** y la **fuente única de verdad** del sistema.
 
 ======================================================================
-        📖 GUÍA DE EJECUCIÓN Y MANUAL DE ENDPOINTS
+        📖 GUÍA DE EJECUCIÓN Y ENDPOINTS
 ======================================================================
 
 -----------------------------
--- 1. REQUISITOS PREVIOS --
+📌 1. REQUISITOS PREVIOS
 -----------------------------
 
-Antes de empezar, asegúrate de tener instalado lo siguiente en tu sistema:
+Asegúrate de tener instaladas las siguientes herramientas:
 
 - ☕ **Java Development Kit (JDK)** – Versión 17 o superior  
-- 🧰 **Apache Maven** – Para compilar el proyecto y gestionar dependencias  
+- 🔧 **Apache Maven** – Para compilar el proyecto y gestionar dependencias  
 
 -----------------------------
--- 2. INSTALACIÓN Y EJECUCIÓN --
+🚀 2. INSTALACIÓN Y EJECUCIÓN
 -----------------------------
 
-**Paso 1: Clonar el Repositorio**
-```
+**Paso 1: Clonar el repositorio**
+
+```bash
 git clone https://github.com/JuanRivera24/ap_i_tm.git
 cd ap_i_tm
 ```
 
-**Paso 2: Compilar y Ejecutar la Aplicación**
+**Paso 2: Ejecutar la aplicación**
 
-Ejecutar "Run" en ApiApplication.java, o dar click en "Run Java"
-
-
-La forma más sencilla de ejecutar un proyecto Spring Boot es utilizando el Maven Wrapper incluido:
+Puedes ejecutar directamente desde tu IDE (por ejemplo, clic en `Run` sobre `ApiApplication.java`)  
+o usar Maven desde terminal:
 
 ```bash
-# En Windows
-./mvnw spring-boot:run
-
-# En macOS/Linux
+# Windows/macOS/Linux
 ./mvnw spring-boot:run
 ```
 
-El servidor se iniciará y la API estará disponible en:  
+La API quedará disponible en:  
 👉 **http://localhost:8080**
 
-**Nota sobre la Base de Datos:**  
-La API utiliza una base de datos en memoria **H2**, lo que significa que:
-- No necesitas instalar ninguna base de datos.
-- Los datos se cargan desde `src/main/resources/data.sql` cada vez que la aplicación arranca.
+🗃️ **Base de Datos:**  
+La aplicación utiliza **H2 Database (en memoria)**, por lo que:
+- No es necesario instalar una base de datos externa.
+- Los datos se cargan automáticamente desde `src/main/resources/data.sql` al iniciar.
 
 ======================================================================
                🧠 1. RESUMEN DEL PROYECTO
 ======================================================================
 
-Esta API es el **núcleo** y la **fuente única de verdad** para el front **Kingdom Barber**.  
-Desarrollada con **Java y Spring Boot**, centraliza la lógica de negocio y la persistencia de datos,  
-sirviendo información de forma consistente a múltiples clientes.
+La API de Kingdom Barber es el **núcleo de la arquitectura** y expone servicios RESTful para ser consumidos por diferentes clientes.
 
-**Clientes que consumen esta API:**
-- 💻 `pi_web2.0`: Aplicación web moderna (Next.js) para agendar citas, ver servicios y contactar la barbería.  
+📱 **Cliente actual:**  
+- `pi_web2.0` → Aplicación web moderna (Next.js) para agendar citas, consultar servicios, contactar, etc.
 
-Esta arquitectura **desacopla completamente** el backend de los frontends,  
-permitiendo que cada componente evolucione de forma independiente.
+🧠 Esta arquitectura permite mantener un backend **desacoplado** de los frontends, facilitando escalabilidad y mantenimiento.
 
 ======================================================================
                🎯 2. OBJETIVOS DEL PROYECTO
 ======================================================================
 
 -----------------------------
--- OBJETIVO PRINCIPAL --
+🎯 OBJETIVO GENERAL
 -----------------------------
 
-Centralizar toda la lógica de negocio y la persistencia de datos del ecosistema **Kingdom Barber**  
-en una **API RESTful** robusta, segura y escalable.
+Centralizar la lógica de negocio y la persistencia del ecosistema **Kingdom Barber** en una API segura, robusta y escalable.
 
 -----------------------------
--- OBJETIVOS ESPECÍFICOS --
+📌 OBJETIVOS ESPECÍFICOS
 -----------------------------
 
-- ✅ **Proveer Endpoints Claros:** Endpoints RESTful bien definidos para operaciones CRUD (NuevasCitas, galería, datos maestros, etc.)  
-- 🧩 **Desacoplar Clientes:** Permitir que los front-ends funcionen sin depender del almacenamiento de datos.  
-- 🚀 **Base Escalable:** Preparar el sistema para soportar nuevos clientes (como apps móviles).
+- ✅ **Proveer Endpoints REST claros** para operaciones CRUD.  
+- 🧩 **Desacoplar los frontends** del backend para permitir evolución independiente.  
+- 🚀 **Preparar una base sólida** para futuras apps móviles u otros clientes.
 
 ======================================================================
                ⚙️ 3. STACK TECNOLÓGICO
 ======================================================================
 
 - 💻 **Lenguaje:** Java 17+  
-- 🧱 **Framework Principal:** Spring Boot 3.x  
-- 🗄️ **Acceso a Datos:** Spring Data JPA / Hibernate  
-- 🧬 **Base de Datos:** H2 Database (en memoria para desarrollo y pruebas)  
+- 🧱 **Framework:** Spring Boot 3.5.x  
+- 🗄️ **Persistencia:** Spring Data JPA + Hibernate  
+- 🧬 **Base de Datos:** H2 (en memoria)  
 - 🌐 **Servidor Web:** Apache Tomcat (embebido)  
-- 🧩 **Gestor de Dependencias:** Maven  
-- ✨ **Utilidades:** Lombok (reduce código repetitivo en modelos)
+- 📦 **Dependencias:** Maven  
+- 🧰 **Utilidades:** Lombok (reducción de boilerplate)
 
 ======================================================================
-          🏗️ 4. ARQUITECTURA Y ESTRUCTURA DE CARPETAS
+      🏗️ 4. ARQUITECTURA Y ESTRUCTURA DEL PROYECTO
 ======================================================================
 
-El proyecto sigue una arquitectura **API REST estándar**, organizada por responsabilidades:
+Estructura principal:
 
 ```
 src/main/java/com/kingdombarber/api/
-├── 📂 controller/   # Reciben peticiones HTTP y definen las URLs (endpoints)
+├── 📂 controller/       # Controladores REST
 │   ├── AgendamientoController.java
 │   ├── ContactoController.java
 │   ├── DatosMaestrosController.java
 │   └── GaleriaController.java
 │
-├── 📂 model/        # Clases @Entity que representan las tablas de la base de datos
+├── 📂 model/            # Entidades JPA (tablas)
 │   ├── Barbero.java
 │   ├── Contacto.java
 │   ├── Galeria.java
@@ -122,81 +114,71 @@ src/main/java/com/kingdombarber/api/
 │   ├── Sede.java
 │   └── Servicio.java
 │
-├── 📂 repository/   # Interfaces que extienden JpaRepository para CRUD
+├── 📂 repository/       # Repositorios (interfaces JPA)
 │   ├── BarberoRepository.java
-│   └── ... (otros repositorios)
+│   └── ...
 │
-├── 📜 ApiApplication.java              # Punto de entrada principal
-├── 📜 WebConfig.java                   # Configuración CORS y archivos estáticos
-└── 📜 RequestLoggingInterceptor.java   # Middleware para registrar peticiones
+├── 📜 ApiApplication.java            # Punto de entrada principal
+├── 📜 WebConfig.java                 # Configuraciones web y CORS
+└── 📜 RequestLoggingInterceptor.java # Interceptor de peticiones HTTP
 ```
 
 ```
 src/main/resources/
-├── 📜 application.properties  # Configuración de la base de datos, servidor, etc.
-└── 📜 data.sql                # Script SQL para la carga inicial de datos
+├── 📜 application.properties  # Configuración general
+└── 📜 data.sql                # Datos precargados para desarrollo
 ```
 
 ======================================================================
-          🌐 5. DESCRIPCIÓN DE ENDPOINTS PRINCIPALES
+      🌐 5. DESCRIPCIÓN DE ENDPOINTS PRINCIPALES
 ======================================================================
 
------------------------------
--- DatosMaestrosController --
------------------------------
+### 📂 DatosMaestrosController
 - `GET /sedes` → Lista todas las sedes  
 - `GET /barberos` → Lista todos los barberos  
 - `GET /servicios` → Lista todos los servicios  
 
------------------------------
--- AgendamientoController (pi_web2.0) --
------------------------------
-- `GET /citas-activas` → Devuelve las citas activas  
-- `POST /citas-activas` → Crea una nueva cita  
-- `PUT /citas-activas/{id}` → Modifica una cita existente  
+### 📂 AgendamientoController
+- `GET /citas-activas` → Lista citas activas  
+- `POST /citas-activas` → Crea nueva cita  
+- `PUT /citas-activas/{id}` → Modifica cita existente  
 - `DELETE /citas-activas/{id}` → Elimina una cita  
 
------------------------------
--- ContactoController --
------------------------------
-- `POST /contactanos` → Recibe y guarda mensajes del formulario de contacto  
+### 📂 ContactoController
+- `POST /contactanos` → Envía mensaje desde el formulario de contacto  
 
------------------------------
--- GaleriaController --
------------------------------
-- `GET /galeria` → Devuelve imágenes de la galería  
-- `POST /galeria/upload` → Sube una nueva imagen con descripción y categoría  
-- `PUT /galeria/{id}` → Modifica la información de una imagen  
-- `DELETE /galeria/{id}` → Elimina una imagen (de la base de datos y del disco)
+### 📂 GaleriaController
+- `GET /galeria` → Lista imágenes de la galería  
+- `POST /galeria/upload` → Sube nueva imagen  
+- `PUT /galeria/{id}` → Actualiza datos de imagen  
+- `DELETE /galeria/{id}` → Elimina imagen (base de datos y archivo)
 
 ======================================================================
-       🔁 6. FLUJO DE DATOS: CREACIÓN DE UNA CITA
+   🔁 6. FLUJO DE DATOS: CREACIÓN DE UNA CITA (FRONT → BACK)
 ======================================================================
 
-1️⃣ **Cliente Front-End (pi_web2.0):**  
-El usuario completa el formulario de agendamiento y confirma la cita.
+1️⃣ **Usuario en Frontend (pi_web2.0)**  
+→ Llena el formulario de agendamiento y envía los datos.
 
-2️⃣ **JavaScript (React):**  
-Captura los datos, construye un objeto JSON y envía una petición `POST` a  
-`http://localhost:8080/citas-activas`.
+2️⃣ **JavaScript (React)**  
+→ Construye el objeto JSON y realiza un `POST` a:  
+   `http://localhost:8080/citas-activas`
 
-3️⃣ **Controlador (API Java):**  
-`AgendamientoController` recibe la petición con `@PostMapping("/citas-activas")`.  
-Spring Boot convierte automáticamente el cuerpo JSON en un objeto `NuevaCita`.
+3️⃣ **Controlador Java (`@PostMapping`)**  
+→ Recibe la solicitud y convierte el JSON a un objeto `NuevaCita`.
 
-4️⃣ **Lógica de Negocio:**  
-El controlador complementa la información (por ejemplo, sede o servicio)  
-y llama al repositorio correspondiente.
+4️⃣ **Lógica del controlador**  
+→ Completa datos si es necesario (ej. nombre de sede) y delega al repositorio.
 
-5️⃣ **Repositorio (JPA):**  
-`NuevaCitaRepository.save()` ejecuta el `INSERT INTO` en la base de datos H2.
+5️⃣ **Capa de persistencia (JPA)**  
+→ Guarda la cita con `save()` en la base de datos H2.
 
-6️⃣ **Respuesta del Back-End:**  
-Devuelve la entidad creada como JSON con código `200 OK`.
+6️⃣ **Respuesta del servidor**  
+→ Devuelve un JSON con la cita registrada y un status `200 OK`.
 
-7️⃣ **Actualización del Front-End:**  
-React recibe la respuesta, actualiza su estado y muestra un mensaje de éxito.
+7️⃣ **Frontend actualiza estado**  
+→ React recibe el JSON, actualiza la UI y muestra confirmación al usuario.
 
 ======================================================================
-        🧩 FIN DE LA DOCUMENTACIÓN TÉCNICA
+        ✅ FIN DE LA DOCUMENTACIÓN TÉCNICA
 ======================================================================
