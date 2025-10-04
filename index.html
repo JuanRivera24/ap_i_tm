@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentación Interactiva: API Kingdom Barber</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: A single-page application with a sticky sidebar for navigation between key thematic sections (Vision, Architecture, Endpoints, Data Flow, Learnings). This non-linear structure is chosen over the original document's linear flow to allow developers to quickly access the specific information they need. The core is an interactive 'Endpoint Explorer' that replaces static tables with a filterable, collapsible UI for better usability and engagement. -->
+    <!-- Visualization & Content Choices: 1. Architecture: HTML/CSS diagram to organize/show system components (Goal: Organize, Method: HTML/CSS). 2. Endpoints: Interactive filterable/collapsible list (Goal: Organize/Inform, Method: JS DOM Manipulation). 3. Data Flow: Step-by-step visual flowchart (Goal: Show Process, Method: HTML/CSS + JS for highlighting). 4. Challenges: Icon-based cards (Goal: Inform, Method: HTML/CSS). This approach avoids external chart libraries as the content is structural and procedural, not statistical. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8;
+            color: #38342F;
+        }
+        .nav-link.active {
+            background-color: #D5C6B3;
+            color: #38342F;
+            font-weight: 600;
+        }
+        .endpoint-method {
+            min-width: 80px;
+        }
+        .method-GET { background-color: #E6F3F0; color: #1E6A5A; }
+        .method-POST { background-color: #E8F2FE; color: #3A5B8A; }
+        .method-PUT { background-color: #FEF3E6; color: #A56D1F; }
+        .method-DELETE { background-color: #FDE8E8; color: #A83A3A; }
+    </style>
+</head>
+<body class="bg-stone-50">
+
+    <div class="flex min-h-screen">
+        <aside class="w-64 bg-[#F4F1ED] p-6 sticky top-0 h-screen hidden md:flex flex-col">
+            <h1 class="text-xl font-bold text-[#38342F] mb-8">API Kingdom Barber</h1>
+            <nav id="desktop-nav" class="flex flex-col space-y-2">
+                <a href="#vision-general" class="nav-link px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-[#EAE4DC]">Visión General</a>
+                <a href="#arquitectura" class="nav-link px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-[#EAE4DC]">Arquitectura</a>
+                <a href="#endpoints" class="nav-link px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-[#EAE4DC]">Explorador de Endpoints</a>
+                <a href="#flujo-datos" class="nav-link px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-[#EAE4DC]">Flujo de Datos</a>
+                <a href="#lecciones" class="nav-link px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-[#EAE4DC]">Lecciones Aprendidas</a>
+                <a href="#conclusion" class="nav-link px-4 py-2 rounded-lg transition-colors duration-200 hover:bg-[#EAE4DC]">Conclusión</a>
+            </nav>
+            <div class="mt-auto text-xs text-gray-500">
+                <p>Octubre, 2025</p>
+                <p>Autores: Juan Rivera, Oscar</p>
+            </div>
+        </aside>
+
+        <main class="flex-1 p-4 md:p-10">
+            <header class="md:hidden mb-6">
+                 <h1 class="text-2xl font-bold text-[#38342F]">API Kingdom Barber</h1>
+                 <select id="mobile-nav" class="mt-2 w-full p-2 border rounded-md bg-white">
+                     <option value="#vision-general">Visión General</option>
+                     <option value="#arquitectura">Arquitectura</option>
+                     <option value="#endpoints">Explorador de Endpoints</option>
+                     <option value="#flujo-datos">Flujo de Datos</option>
+                     <option value="#lecciones">Lecciones Aprendidas</option>
+                     <option value="#conclusion">Conclusión</option>
+                 </select>
+            </header>
+
+            <section id="vision-general" class="mb-16 scroll-mt-20">
+                <h2 class="text-3xl font-bold mb-6 text-[#A56D1F]">Visión General</h2>
+                <p class="mb-8 text-lg text-gray-700">Esta sección resume la misión y el propósito de la API Central de Kingdom Barber, el cerebro que impulsa la modernización de la gestión de la barbería. A través de una arquitectura desacoplada, se resuelve el desafío de los procesos manuales y se ofrece una solución digital integral.</p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                        <h3 class="font-bold text-xl mb-2">Planteamiento del Problema</h3>
+                        <p class="text-gray-600">La gestión tradicional enfrentaba desafíos como la dependencia de procesos manuales para agendar citas, comunicación ineficiente y una carencia de análisis de datos, resultando en una baja eficiencia y una experiencia de cliente obsoleta.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                        <h3 class="font-bold text-xl mb-2">Solución Propuesta</h3>
+                        <p class="text-gray-600">Una arquitectura moderna que digitaliza y optimiza las operaciones. Al centralizar el back-end en una única API de Java, se garantiza la consistencia, seguridad y escalabilidad de los datos y se habilitan herramientas de inteligencia de negocio.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="arquitectura" class="mb-16 scroll-mt-20">
+                <h2 class="text-3xl font-bold mb-6 text-[#A56D1F]">Arquitectura y Stack Tecnológico</h2>
+                <p class="mb-8 text-lg text-gray-700">La API está diseñada bajo una arquitectura de servicios desacoplados, donde es el componente central que gestiona toda la lógica y persistencia de datos. A continuación se detalla el flujo, las tecnologías utilizadas y la estructura del proyecto.</p>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 mb-8">
+                    <h3 class="font-bold text-xl mb-4 text-center">Diagrama de Arquitectura</h3>
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-4 text-center">
+                        <div class="p-4 bg-blue-100 rounded-lg shadow">
+                            <p class="font-bold">Cliente Web (pi_web2.0)</p>
+                            <p class="text-sm">Next.js / React</p>
+                        </div>
+                        <div class="font-mono text-2xl text-gray-400">&harr;</div>
+                        <div class="p-6 bg-amber-100 rounded-lg shadow border-2 border-amber-400">
+                            <p class="font-bold text-lg">API Central (AP_I_TM)</p>
+                            <p class="text-sm">Java / Spring Boot</p>
+                        </div>
+                        <div class="font-mono text-2xl text-gray-400">&harr;</div>
+                        <div class="p-4 bg-green-100 rounded-lg shadow">
+                            <p class="font-bold">Base de Datos</p>
+                            <p class="text-sm">H2 / JPA</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                        <h3 class="font-bold text-xl mb-4">Stack Tecnológico (Back-End)</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center"><span class="font-semibold w-32">Lenguaje:</span> Java 17+</li>
+                            <li class="flex items-center"><span class="font-semibold w-32">Framework:</span> Spring Boot 3.x</li>
+                            <li class="flex items-center"><span class="font-semibold w-32">Acceso a Datos:</span> Spring Data JPA</li>
+                            <li class="flex items-center"><span class="font-semibold w-32">Base de Datos:</span> H2 (en memoria)</li>
+                            <li class="flex items-center"><span class="font-semibold w-32">Servidor:</span> Apache Tomcat</li>
+                            <li class="flex items-center"><span class="font-semibold w-32">Utilidades:</span> Lombok</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                        <h3 class="font-bold text-xl mb-4">Estructura de Carpetas</h3>
+                        <pre class="bg-gray-800 text-white p-4 rounded-lg text-sm font-mono overflow-x-auto"><code>src/main/java/com/kingdombarber/api/
+├── controller/
+├── model/
+├── repository/
+└── resources/
+    ├── application.properties
+    └── data.sql</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <section id="endpoints" class="mb-16 scroll-mt-20">
+                <h2 class="text-3xl font-bold mb-6 text-[#A56D1F]">Explorador de Endpoints</h2>
+                <p class="mb-8 text-lg text-gray-700">Explore de forma interactiva los endpoints de la API. Seleccione un controlador para ver sus rutas disponibles y haga clic en cualquiera de ellas para desplegar los detalles. Esta sección le permite entender rápidamente las capacidades de cada módulo.</p>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                    <div id="endpoint-filters" class="flex flex-wrap gap-2 mb-6"></div>
+                    <div id="endpoint-list" class="space-y-3"></div>
+                </div>
+            </section>
+
+            <section id="flujo-datos" class="mb-16 scroll-mt-20">
+                <h2 class="text-3xl font-bold mb-6 text-[#A56D1F]">Flujo de Datos: Creación de una Cita</h2>
+                <p class="mb-8 text-lg text-gray-700">Este diagrama ilustra el ciclo de vida completo de una solicitud para crear una nueva cita, desde la interacción del usuario en la web hasta que los datos son persistidos y la confirmación es devuelta. Siga los pasos para comprender cómo interactúan los componentes del sistema.</p>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                    <div class="relative space-y-4">
+                        <div class="absolute left-4 top-4 bottom-4 w-0.5 bg-stone-300"></div>
+                        <div class="relative pl-10">
+                            <div class="absolute left-0 top-1/2 -translate-y-1/2 flex items-center justify-center w-8 h-8 bg-[#D5C6B3] rounded-full font-bold text-white">1</div>
+                            <h4 class="font-bold">Cliente Front-End (React)</h4>
+                            <p class="text-sm text-gray-600">Usuario confirma cita. Se construye un objeto JSON y se envía una petición POST a `/citas-activas`.</p>
+                        </div>
+                        <div class="relative pl-10">
+                            <div class="absolute left-0 top-1/2 -translate-y-1/2 flex items-center justify-center w-8 h-8 bg-[#D5C6B3] rounded-full font-bold text-white">2</div>
+                            <h4 class="font-bold">Controller (API Java)</h4>
+                            <p class="text-sm text-gray-600">`AgendamientoController` recibe la petición y mapea el JSON a un objeto `NuevaCita`.</p>
+                        </div>
+                        <div class="relative pl-10">
+                            <div class="absolute left-0 top-1/2 -translate-y-1/2 flex items-center justify-center w-8 h-8 bg-[#D5C6B3] rounded-full font-bold text-white">3</div>
+                            <h4 class="font-bold">Lógica de Negocio</h4>
+                            <p class="text-sm text-gray-600">El controlador enriquece el objeto (ej. añade nombre de barbero) y lo pasa al repositorio.</p>
+                        </div>
+                        <div class="relative pl-10">
+                            <div class="absolute left-0 top-1/2 -translate-y-1/2 flex items-center justify-center w-8 h-8 bg-[#D5C6B3] rounded-full font-bold text-white">4</div>
+                            <h4 class="font-bold">Repositorio (JPA)</h4>
+                            <p class="text-sm text-gray-600">`NuevaCitaRepository.save()` genera y ejecuta una sentencia `INSERT INTO` en la base de datos.</p>
+                        </div>
+                        <div class="relative pl-10">
+                            <div class="absolute left-0 top-1/2 -translate-y-1/2 flex items-center justify-center w-8 h-8 bg-[#D5C6B3] rounded-full font-bold text-white">5</div>
+                            <h4 class="font-bold">Respuesta del Back-End</h4>
+                            <p class="text-sm text-gray-600">La API devuelve la entidad guardada (con su nuevo ID) y un estado `200 OK`.</p>
+                        </div>
+                        <div class="relative pl-10">
+                            <div class="absolute left-0 top-1/2 -translate-y-1/2 flex items-center justify-center w-8 h-8 bg-[#D5C6B3] rounded-full font-bold text-white">6</div>
+                            <h4 class="font-bold">Actualización del Front-End</h4>
+                            <p class="text-sm text-gray-600">React recibe la respuesta, actualiza el estado y renderiza la nueva cita en el calendario del usuario.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="lecciones" class="mb-16 scroll-mt-20">
+                <h2 class="text-3xl font-bold mb-6 text-[#A56D1F]">Desafíos y Lecciones Aprendidas</h2>
+                <p class="mb-8 text-lg text-gray-700">El desarrollo de un ecosistema multi-tecnológico presentó desafíos que proporcionaron valiosas lecciones para futuros proyectos. Los principales obstáculos se centraron en la comunicación entre servicios y el manejo de archivos.</p>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                        <h3 class="font-bold text-xl mb-2">Integración (CORS)</h3>
+                        <p class="text-gray-600">Fue necesario implementar y depurar una configuración robusta de `Cross-Origin Resource Sharing` en la API para permitir peticiones desde el front-end, un paso vital para la comunicación entre los dominios.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                        <h3 class="font-bold text-xl mb-2">Manejo de Archivos (Base64)</h3>
+                        <p class="text-gray-600">Servir imágenes estáticas generó problemas. La solución fue convertir las imágenes a formato `Base64` en el back-end, eliminando por completo los problemas de rutas y CORS para archivos multimedia.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                        <h3 class="font-bold text-xl mb-2">Contrato de API</h3>
+                        <p class="text-gray-600">La interconexión de proyectos reforzó la necesidad crítica de mantener un "contrato de API" claro y estable. Cualquier cambio en el back-end impactaba directamente al front-end, destacando la importancia de la comunicación.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="conclusion" class="scroll-mt-20">
+                <h2 class="text-3xl font-bold mb-6 text-[#A56D1F]">Conclusión</h2>
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-stone-200 text-lg text-gray-700 space-y-4">
+                    <p>La decisión de consolidar el ecosistema bajo una **API Central en Java** ha sido el paso definitivo hacia una solución tecnológica robusta, escalable y profesional.</p>
+                    <p>Este proyecto demuestra una integración exitosa de diferentes stacks tecnológicos en un ecosistema cohesivo, transitando de un modelo fragmentado a una arquitectura de servicios limpia y desacoplada. Se ha garantizado la integridad de la información al centralizar la fuente de datos, sentando bases sólidas para futuras expansiones como una aplicación móvil nativa sin necesidad de reinventar la lógica de negocio.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const endpointData = {
+                "Agendamiento": [
+                    { method: "GET", path: "/citas-activas", description: "Devuelve la lista completa de citas programadas en el calendario." },
+                    { method: "POST", path: "/citas-activas", description: "Crea una nueva cita. El back-end enriquece el objeto con datos maestros." },
+                    { method: "PUT", path: "/citas-activas/{id}", description: "Modifica una cita existente por su ID." },
+                    { method: "DELETE", path: "/citas-activas/{id}", description: "Elimina una cita." }
+                ],
+                "Galería": [
+                    { method: "GET", path: "/galeria", description: "Devuelve la lista de imágenes de la galería (incluyendo datos Base64)." },
+                    { method: "POST", path: "/galeria/upload", description: "Sube un nuevo archivo de imagen y lo convierte a Base64 para almacenarlo." },
+                    { method: "PUT", path: "/galeria/{id}", description: "Modifica la información (descripción, categoría) de una imagen." },
+                    { method: "DELETE", path: "/galeria/{id}", description: "Elimina una imagen de la base de datos." }
+                ],
+                "Datos Maestros": [
+                    { method: "GET", path: "/sedes", description: "Devuelve la lista de todas las sedes disponibles." },
+                    { method: "GET", path: "/barberos", description: "Devuelve la lista de todos los barberos registrados." },
+                    { method: "GET", path: "/servicios", description: "Devuelve la lista de todos los servicios ofrecidos." }
+                ],
+                "Contacto": [
+                    { method: "POST", path: "/contactanos", description: "Recibe y guarda un nuevo mensaje del formulario de contacto." }
+                ]
+            };
+
+            const filtersContainer = document.getElementById('endpoint-filters');
+            const listContainer = document.getElementById('endpoint-list');
+            let activeFilter = Object.keys(endpointData)[0];
+
+            function renderEndpoints() {
+                listContainer.innerHTML = '';
+                const endpoints = endpointData[activeFilter];
+                endpoints.forEach(endpoint => {
+                    const div = document.createElement('div');
+                    div.className = 'border border-stone-200 rounded-lg overflow-hidden';
+                    div.innerHTML = `
+                        <button class="w-full flex items-center p-4 text-left bg-stone-50 hover:bg-stone-100 transition-colors duration-200">
+                            <span class="endpoint-method text-sm font-bold text-center rounded-md px-2 py-1 method-${endpoint.method}">${endpoint.method}</span>
+                            <span class="ml-4 font-mono text-sm md:text-base">${endpoint.path}</span>
+                            <span class="ml-auto text-stone-400 transform transition-transform duration-200">&#9662;</span>
+                        </button>
+                        <div class="p-4 bg-white border-t border-stone-200 hidden">
+                            <p>${endpoint.description}</p>
+                        </div>
+                    `;
+                    listContainer.appendChild(div);
+                });
+            }
+
+            function renderFilters() {
+                filtersContainer.innerHTML = '';
+                Object.keys(endpointData).forEach(filter => {
+                    const button = document.createElement('button');
+                    button.textContent = filter;
+                    button.className = `px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${activeFilter === filter ? 'bg-[#38342F] text-white' : 'bg-stone-200 text-stone-700 hover:bg-stone-300'}`;
+                    button.onclick = () => {
+                        activeFilter = filter;
+                        renderFilters();
+                        renderEndpoints();
+                    };
+                    filtersContainer.appendChild(button);
+                });
+            }
+
+            listContainer.addEventListener('click', function(e) {
+                const button = e.target.closest('button');
+                if (button) {
+                    const content = button.nextElementSibling;
+                    const arrow = button.querySelector('span:last-child');
+                    content.classList.toggle('hidden');
+                    arrow.classList.toggle('rotate-180');
+                }
+            });
+
+            renderFilters();
+            renderEndpoints();
+            
+            const sections = document.querySelectorAll('main section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const mobileNav = document.getElementById('mobile-nav');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.toggle('active', link.getAttribute('href').substring(1) === entry.target.id);
+                        });
+                        mobileNav.value = `#${entry.target.id}`;
+                    }
+                });
+            }, { rootMargin: "-50% 0px -50% 0px" });
+
+            sections.forEach(section => observer.observe(section));
+
+            mobileNav.addEventListener('change', () => {
+                window.location.hash = mobileNav.value;
+            });
+        });
+    </script>
+</body>
+</html>
