@@ -1,13 +1,13 @@
 ======================================================================
-         📱 KINGDOM BARBER - API CENTRAL (pi_movil2)
+         📱 KINGDOM BARBER - API
 ======================================================================
 
-🗓️ **Documentación: API Móviles 2 - Kingdom Barber**  
+🗓️ **Documentación: API - Kingdom Barber - ITM**  
 📅 **Fecha:** Octubre, 2025  
-👥 **Autores:** Juan Rivera, Andrés Vallejo, Alejandro Urrego  
+👥 **Autores:** Juan Rivera, Oscar 
 
 Este repositorio contiene el código del **back-end** para todo el ecosistema de Kingdom Barber.  
-Es una **API RESTful** desarrollada con **Java y Spring Boot**, que actúa como el cerebro y la **única fuente de verdad** para todos los clientes front-end (`pi_web2.0` y `pi_ntp2.0`).
+Es una **API RESTful** desarrollada con **Java y Spring Boot**, que actúa como el cerebro y la **única fuente de verdad**.
 
 ======================================================================
         📖 GUÍA DE EJECUCIÓN Y MANUAL DE ENDPOINTS
@@ -28,8 +28,8 @@ Antes de empezar, asegúrate de tener instalado lo siguiente en tu sistema:
 
 **Paso 1: Clonar el Repositorio**
 ```
-git clone https://github.com/JuanRivera24/pi_movil2.0.git
-cd pi_movil2
+git clone https://github.com/JuanRivera24/ap_i_tm.git
+cd ap_i_tm
 ```
 
 **Paso 2: Compilar y Ejecutar la Aplicación**
@@ -59,13 +59,12 @@ La API utiliza una base de datos en memoria **H2**, lo que significa que:
                🧠 1. RESUMEN DEL PROYECTO
 ======================================================================
 
-Esta API es el **núcleo** y la **fuente única de verdad** para todo el ecosistema **Kingdom Barber**.  
+Esta API es el **núcleo** y la **fuente única de verdad** para el front **Kingdom Barber**.  
 Desarrollada con **Java y Spring Boot**, centraliza la lógica de negocio y la persistencia de datos,  
 sirviendo información de forma consistente a múltiples clientes.
 
 **Clientes que consumen esta API:**
 - 💻 `pi_web2.0`: Aplicación web moderna (Next.js) para agendar citas, ver servicios y contactar la barbería.  
-- 📊 `pi_ntp2.0`: Dashboard de análisis en **Python/Streamlit** para reportes y visualizaciones.
 
 Esta arquitectura **desacopla completamente** el backend de los frontends,  
 permitiendo que cada componente evolucione de forma independiente.
@@ -79,15 +78,14 @@ permitiendo que cada componente evolucione de forma independiente.
 -----------------------------
 
 Centralizar toda la lógica de negocio y la persistencia de datos del ecosistema **Kingdom Barber**  
-en una **única API RESTful** robusta, segura y escalable.
+en una **API RESTful** robusta, segura y escalable.
 
 -----------------------------
 -- OBJETIVOS ESPECÍFICOS --
 -----------------------------
 
-- ✅ **Proveer Endpoints Claros:** Endpoints RESTful bien definidos para operaciones CRUD (citas, galería, datos maestros, etc.)  
+- ✅ **Proveer Endpoints Claros:** Endpoints RESTful bien definidos para operaciones CRUD (NuevasCitas, galería, datos maestros, etc.)  
 - 🧩 **Desacoplar Clientes:** Permitir que los front-ends funcionen sin depender del almacenamiento de datos.  
-- 🔄 **Garantizar Consistencia:** Unificar lectura y escritura de datos para evitar duplicidad.  
 - 🚀 **Base Escalable:** Preparar el sistema para soportar nuevos clientes (como apps móviles).
 
 ======================================================================
@@ -113,14 +111,11 @@ src/main/java/com/kingdombarber/api/
 ├── 📂 controller/   # Reciben peticiones HTTP y definen las URLs (endpoints)
 │   ├── AgendamientoController.java
 │   ├── ContactoController.java
-│   ├── DashboardController.java
 │   ├── DatosMaestrosController.java
 │   └── GaleriaController.java
 │
 ├── 📂 model/        # Clases @Entity que representan las tablas de la base de datos
 │   ├── Barbero.java
-│   ├── Cita.java
-│   ├── Cliente.java
 │   ├── Contacto.java
 │   ├── Galeria.java
 │   ├── NuevaCita.java
@@ -129,7 +124,6 @@ src/main/java/com/kingdombarber/api/
 │
 ├── 📂 repository/   # Interfaces que extienden JpaRepository para CRUD
 │   ├── BarberoRepository.java
-│   ├── CitaRepository.java
 │   └── ... (otros repositorios)
 │
 ├── 📜 ApiApplication.java              # Punto de entrada principal
@@ -153,12 +147,6 @@ src/main/resources/
 - `GET /sedes` → Lista todas las sedes  
 - `GET /barberos` → Lista todos los barberos  
 - `GET /servicios` → Lista todos los servicios  
-
------------------------------
--- DashboardController (pi_ntp2.0) --
------------------------------
-- `GET /historial/citas` → Devuelve el historial completo (~4000 registros)  
-- `GET /clientes` → Devuelve la lista de clientes  
 
 -----------------------------
 -- AgendamientoController (pi_web2.0) --
