@@ -5,7 +5,7 @@
 👥 Integrantes:
   - Juan Manuel
   - Oscar
-  - Juan Esteban
+  - Juan Fernando
 
 🏫 Institución: Instituto Tecnológico Metropolitano (ITM)
 📘 Asignatura: Estructura de Datos
