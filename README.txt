@@ -1,284 +1,206 @@
 ======================================================================
-             💈 DOCUMENTACIÓN: AP_I_TM - KINGDOM BARBER
+💈 DOCUMENTACIÓN: AP_I_TM - KINGDOM BARBER
 ======================================================================
 
-👥 **Integrantes:**  
-- Juan Manuel Rivera  
-- Oscar  
+👥 Integrantes:
+  - Juan Manuel
+  - Oscar
+  - Juan Esteban
 
-🏫 **Institución:**  
-Instituto Tecnológico Metropolitano (ITM)  
-
-📘 **Asignatura:**  
-Estructura de Datos  
-
-📆 **Fecha:**  
-Octubre, 2025  
+🏫 Institución: Instituto Tecnológico Metropolitano (ITM)
+📘 Asignatura: Estructura de Datos
+📆 Fecha: Octubre, 2025
 
 ======================================================================
-                   📘 1. RESUMEN EJECUTIVO Y VISIÓN GENERAL
+                      🚀 INFORMACIÓN DE DESPLIEGUE
 ======================================================================
 
-### 1.1. Resumen del Proyecto
-
-La **API Central de Kingdom Barber (AP_I_TM)** es el **núcleo del ecosistema digital**, desarrollada con **Java y Spring Boot**.  
-Su objetivo principal es **centralizar toda la lógica de negocio y la persistencia de datos**, transformando la gestión de barberías en una plataforma **robusta, segura y escalable**.
-
-La arquitectura se compone de un **ecosistema cohesivo y desacoplado**, donde la API actúa como **fuente única de verdad**, dando servicio a clientes front-end como:
-
-- 🌐 **pi_web2.0 (Plataforma Web para Clientes):** Aplicación moderna en Next.js/React para agendar citas, explorar servicios y visualizar la galería de trabajos.
-
----
-
-### 1.2. Planteamiento del Problema
-
-Las barberías enfrentaban múltiples problemas debido a su dependencia de métodos manuales:
-
-- Procesos ineficientes y lentos.  
-- Comunicación fragmentada entre clientes y barberos.  
-- Ausencia de análisis de datos y trazabilidad.  
-- Falta de un punto central para administrar información.  
-
-Esto resultaba en una **baja eficiencia operativa** y una **experiencia del cliente limitada**.
-
----
-
-### 1.3. Solución Propuesta
-
-**Kingdom Barber** propone una solución moderna y centralizada mediante esta API de Java.  
-Su arquitectura digitaliza y optimiza las operaciones, asegurando:
-
-- 🔒 **Seguridad y consistencia** de los datos.  
-- ⚙️ **Escalabilidad** para futuras expansiones.  
-- 🤝 **Integración transparente** con los clientes front-end.  
-- 📊 **Base sólida** para incorporar análisis e inteligencia de negocio.
-
----
+🌐 Plataforma: Vercel (https://vercel.com/)  
+🔗 URL Pública: https://front-beta-sable.vercel.app 
+🌐 Plataforma: Render (https://render.com/)  
+🧩 API Consumida: https://ap-i-tm.onrender.com  
+📦 Estado: Activo y en Producción  
 
 ======================================================================
-               🎯 2. OBJETIVOS DE LA API CENTRAL
+📘 1. RESUMEN EJECUTIVO Y VISIÓN GENERAL
 ======================================================================
 
-### 2.1. Objetivo General
+1.1. Resumen del Proyecto:
+  La API Central de Kingdom Barber (AP_I_TM) es el núcleo del ecosistema digital, desarrollada con Java y Spring Boot.
+  Su objetivo principal es centralizar la lógica de negocio y la persistencia de datos, convirtiendo la gestión de barberías
+  en una plataforma moderna, segura y escalable.
+  La arquitectura es desacoplada y la API actúa como fuente única de verdad (Single Source of Truth), sirviendo a clientes front-end como:
+    - 🌐 Front (Plataforma Web - Next.js/React): Para agendar citas, explorar servicios y visualizar la galería.
 
-Desarrollar una **API RESTful robusta, segura y escalable** que **centralice toda la lógica de negocio y la persistencia de datos** del ecosistema **Kingdom Barber**, sirviendo como base para futuras extensiones como una aplicación móvil.
+1.2. Planteamiento del Problema:
+  Las barberías enfrentaban dificultades por procesos manuales:
+    - Procesos ineficientes y errores de agendamiento.
+    - Comunicación fragmentada entre barberos y clientes.
+    - Falta de análisis de datos o métricas.
+    - Sin trazabilidad ni historial del cliente.
+  Esto generaba baja eficiencia y una experiencia obsoleta.
 
----
-
-### 2.2. Objetivos Específicos
-
-- 🧩 **Centralizar la Lógica de Negocio:**  
-  Crear una API RESTful en **Java + Spring Boot** como **fuente única de verdad** para entidades como citas, clientes, barberos y servicios.  
-
-- 🔗 **Proveer Endpoints Claros:**  
-  Exponer operaciones CRUD bien definidas para cada módulo del sistema (citas, galería, contacto, etc.).  
-
-- 🧠 **Desacoplar Clientes:**  
-  Eliminar la dependencia directa de los front-end con la base de datos, asegurando independencia de capas.  
-
-- 🔒 **Garantizar Consistencia:**  
-  Mantener una sola fuente de datos sincronizada y coherente para todos los consumidores del sistema.
-
----
-
-======================================================================
-               🏗️ 3. ARQUITECTURA Y STACK TECNOLÓGICO
-======================================================================
-
-La API **AP_I_TM** sigue una arquitectura de **servicios desacoplados**, donde **la lógica y los datos** residen en el back-end, y la **interfaz de usuario** se comunica mediante peticiones HTTP (REST).
-
-```
-┌──────────────────────────────┐
-│        API CENTRAL           │
-│   Java + Spring Boot (8080)  │
-│   └── Lógica y datos (H2 DB) │
-└──────────────┬───────────────┘
-               │
-               ▼
-     🌐 Plataforma Web (Next.js)
-```
-
----
-
-### 3.1. Stack Tecnológico Consolidado
-
-| Capa | Tecnología | Propósito |
-|------|-------------|-----------|
-| 💻 Lenguaje | **Java 17+** | Lenguaje principal de desarrollo. |
-| ⚙️ Framework | **Spring Boot 3.x** | Creación rápida de API REST y configuración automática. |
-| 🗃️ Acceso a Datos | **Spring Data JPA / Hibernate** | ORM y operaciones CRUD. |
-| 🧩 Base de Datos | **H2 Database** | Almacenamiento en memoria para desarrollo/pruebas. |
-| 🌐 Servidor | **Apache Tomcat (Embebido)** | Ejecución de la API. |
-| 🧰 Utilidades | **Lombok** | Reducción de código repetitivo (getters/setters). |
-
----
-
-### 3.2. Estructura de Carpetas
-
-| Carpeta | Descripción | Ejemplos |
-|----------|-------------|-----------|
-| `controller/` | Gestiona peticiones HTTP y define endpoints. | `AgendamientoController.java`, `GaleriaController.java` |
-| `model/` | Clases `@Entity` que representan las tablas. | `NuevaCita.java`, `Barbero.java`, `Galeria.java` |
-| `repository/` | Interfaces que extienden `JpaRepository`. | `CitaRepository.java`, `ServicioRepository.java` |
-| `resources/` | Configuración y datos iniciales. | `application.properties`, `data.sql` |
-
----
+1.3. Solución Propuesta:
+  Kingdom Barber propone una API que:
+    - 🔒 Centraliza y asegura la información.
+    - ⚙️ Permite escalabilidad hacia nuevas plataformas.
+    - 🤝 Facilita integración mediante API REST.
+    - 📊 Permite análisis y toma de decisiones estratégicas.
 
 ======================================================================
-     🧠 4. USO DE CONCEPTOS DE POO Y ESTRUCTURAS DE DATOS
+🎯 2. OBJETIVOS DE LA API CENTRAL
 ======================================================================
 
-### 4.1. Herencia  
-**Veredicto:** ✅ *Sí, y es fundamental en el proyecto.*
+2.1. Objetivo General:
+  Desarrollar una API RESTful robusta, segura y escalable que centralice la lógica de negocio y los datos del ecosistema Kingdom Barber.
 
-Ejemplo:
-```java
-public interface CitaRepository extends JpaRepository<Cita, Long> {}
-```
-`CitaRepository` **hereda** de `JpaRepository`, obteniendo automáticamente métodos como `save()`, `findById()`, `findAll()` y `deleteById()`.  
-Esto demuestra el uso de **herencia de interfaces** para implementar una arquitectura limpia y reutilizable.
+2.2. Objetivos Específicos:
+  - 🧩 Centralizar la lógica del negocio (citas, clientes, barberos, servicios).
+  - 🔗 Exponer endpoints RESTful claros para CRUD y operaciones clave.
+  - 🧠 Desacoplar el front-end de la base de datos.
+  - 🔒 Garantizar la integridad y consistencia de los datos en todas las capas.
 
----
+======================================================================
+🏗️ 3. ARQUITECTURA Y STACK TECNOLÓGICO
+======================================================================
 
-### 4.2. Polimorfismo y Sobrescritura (Overriding)  
-**Veredicto:** ✅ *Presentes en las clases de configuración.*
+La API sigue una arquitectura de servicios desacoplados, donde toda la lógica y datos residen en el back-end, y los clientes se comunican vía HTTP/REST.
 
-Ejemplo:
-```java
-public class WebConfig implements WebMvcConfigurer {
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(requestLoggingInterceptor);
+Diagrama General:
+  ┌──────────────────────────────┐
+  │        API CENTRAL (Back-End)│
+  │   Java + Spring Boot (Render)│
+  │   └── Lógica de Negocio      │
+  │   └── Acceso a Datos (JPA)   │
+  └──────────────┬───────────────┘
+                 │
+        (HTTP/JSON Requests)
+                 │
+                 ▼
+  ┌──────────────────────────────┐
+  │     CLIENTE (Front-End)      │
+  │     Next.js / React (Vercel) │
+  └──────────────────────────────┘
+
+3.1. Stack Tecnológico Consolidado:
+  💻 Lenguaje: Java 17+
+  ⚙️ Framework: Spring Boot 3.x
+  🗃️ Acceso a Datos: Spring Data JPA / Hibernate
+  🧩 Base de Datos: H2 Database (en desarrollo)
+  🌐 Servidor: Apache Tomcat (embebido)
+  🧰 Utilidades: Lombok (para reducir código repetitivo)
+
+3.2. Estructura de Carpetas:
+  controller/  →  Controladores REST (manejan peticiones HTTP)
+  model/       →  Entidades @Entity (tablas de la BD)
+  repository/  →  Repositorios JPA (CRUD automático)
+  resources/   →  Configuración y scripts de datos (application.properties, data.sql)
+
+======================================================================
+🧠 4. USO DE CONCEPTOS DE POO Y ESTRUCTURAS DE DATOS
+======================================================================
+
+4.1. Herencia:
+  ✅ Presente.  
+  CitaRepository hereda de JpaRepository y obtiene métodos CRUD automáticamente.
+
+  Ejemplo:
+    public interface CitaRepository extends JpaRepository<Cita, Long> {}
+
+4.2. Polimorfismo y Sobrescritura:
+  ✅ Presente en configuraciones personalizadas.
+
+  Ejemplo:
+    public class WebConfig implements WebMvcConfigurer {
+        @Override
+        public void addCorsMappings(CorsRegistry registry) {
+            registry.addMapping("/**").allowedOrigins("*");
+        }
     }
-}
-```
-Aquí, `WebConfig` **implementa** `WebMvcConfigurer`, sobrescribiendo métodos estándar para personalizar el comportamiento del framework.
 
----
-
-### 4.3. Estructuras de Datos
-
-| Tipo | Uso | Veredicto |
-|------|-----|-----------|
-| 🔹 **Arrays (String[])** | No usados directamente, pero su concepto está presente en listas. | ⚠️ |
-| 🔹 **List<T>** | Retorno común de datos (`findAll()` → `List<Entity>`). | ✅ |
-| 🔹 **Map / HashMap** | Implícitos en JSON y búsquedas por ID. | ✅ |
-| 🔹 **Set<T>** | Usados en relaciones @ManyToMany (unicidad). | ✅ |
-
-Ejemplo:
-```java
-@ManyToMany
-private Set<Servicio> services;
-```
-
----
-
-### 4.4. Conclusión (POO y Estructuras)
-
-El proyecto **Kingdom Barber - API Central** aplica eficazmente los pilares de la **POO** y las **estructuras de datos dinámicas**, garantizando una arquitectura **modular, mantenible y escalable**.
-
----
+4.3. Estructuras de Datos:
+  - 🔹 Arrays: No usados directamente (⚠️)
+  - 🔹 List<T>: Estructura principal para devolver colecciones (✅)
+  - 🔹 Map / HashMap: Usado en serialización JSON (✅)
+  - 🔹 Set<T>: Garantiza unicidad en relaciones @ManyToMany (✅)
 
 ======================================================================
-               🌐 5. DESCRIPCIÓN DE ENDPOINTS PRINCIPALES
+🌐 5. ENDPOINTS PRINCIPALES
 ======================================================================
 
-### 📅 AgendamientoController
-| Método | Endpoint | Descripción |
-|---------|-----------|-------------|
-| GET | `/citas-activas` | Devuelve todas las citas activas. |
-| POST | `/citas-activas` | Crea una nueva cita. |
-| PUT | `/citas-activas/{id}` | Modifica una cita existente. |
-| DELETE | `/citas-activas/{id}` | Elimina una cita por ID. |
+📅 AgendamientoController:
+  - GET /citas-activas → Lista todas las citas activas.
+  - POST /citas-activas → Crea una nueva cita.
+  - PUT /citas-activas/{id} → Actualiza una cita existente.
+  - DELETE /citas-activas/{id} → Elimina una cita.
 
----
+🖼️ GaleriaController:
+  - GET /galeria → Devuelve las imágenes en Base64.
+  - POST /galeria/upload → Sube una nueva imagen.
+  - PUT /galeria/{id} → Modifica descripción/categoría.
+  - DELETE /galeria/{id} → Elimina imagen de la base de datos.
 
-### 🖼️ GaleriaController
-| Método | Endpoint | Descripción |
-|---------|-----------|-------------|
-| GET | `/galeria` | Devuelve las imágenes en Base64. |
-| POST | `/galeria/upload` | Sube y guarda una nueva imagen. |
-| PUT | `/galeria/{id}` | Modifica los datos de una imagen. |
-| DELETE | `/galeria/{id}` | Elimina una imagen. |
+🧾 DatosMaestrosController:
+  - GET /sedes → Lista todas las sedes.
+  - GET /barberos → Lista todos los barberos.
+  - GET /servicios → Lista todos los servicios.
 
----
-
-### 🧾 DatosMaestrosController
-| Método | Endpoint | Descripción |
-|---------|-----------|-------------|
-| GET | `/sedes` | Devuelve todas las sedes. |
-| GET | `/barberos` | Devuelve los barberos registrados. |
-| GET | `/servicios` | Devuelve los servicios disponibles. |
-
----
-
-### 💬 ContactoController
-| Método | Endpoint | Descripción |
-|---------|-----------|-------------|
-| POST | `/contactanos` | Registra un mensaje del formulario web. |
-
----
+💬 ContactoController:
+  - POST /contactanos → Recibe y guarda mensajes del formulario.
 
 ======================================================================
-         🔄 6. FLUJO DE DATOS TÍPICO: CREACIÓN DE UNA CITA
+🔄 6. FLUJO DE DATOS: CREACIÓN DE UNA CITA
 ======================================================================
 
-1️⃣ **Front-End (pi_web2.0):**  
-El usuario agenda una cita → React envía un JSON vía POST a `http://localhost:8080/citas-activas`.  
-
-2️⃣ **Recepción (API Java):**  
-El `AgendamientoController` recibe y mapea el JSON al objeto `NuevaCita`.  
-
-3️⃣ **Lógica de Negocio:**  
-Se enriquece el objeto con datos del barbero y la sede.  
-
-4️⃣ **Persistencia (JPA):**  
-Se ejecuta `repository.save()`, generando un `INSERT INTO` en H2.  
-
-5️⃣ **Respuesta:**  
-La API devuelve el objeto creado como JSON con código `200 OK`.  
-
-6️⃣ **Front-End:**  
-React actualiza el estado y renderiza la cita en el calendario del usuario.
-
----
+1️⃣ Front-End (pi_web2.0): Usuario completa el formulario.  
+2️⃣ Se envía una petición POST JSON → `/citas-activas`.  
+3️⃣ Spring Boot mapea el JSON a un objeto Java.  
+4️⃣ El controlador valida y guarda usando `repository.save()`.  
+5️⃣ Hibernate ejecuta el `INSERT INTO` en la base de datos.  
+6️⃣ La API responde con el JSON del nuevo registro (200 OK).  
+7️⃣ El front-end actualiza la interfaz y muestra la nueva cita.
 
 ======================================================================
-        ⚙️ 7. DESAFÍOS Y LECCIONES APRENDIDAS
+🚀 7. DESPLIEGUE Y PRODUCCIÓN
 ======================================================================
 
-### 🧩 A. CORS e Integración
-Configurar correctamente **CORS** fue esencial para permitir peticiones desde el front-end (`localhost:3000`).  
-
-### 🧠 B. Manejo de Archivos Base64
-Inicialmente las imágenes daban errores `400 Bad Request`.  
-**Solución:** convertir y almacenar las imágenes en **Base64** directamente en la base de datos → cero conflictos de rutas o permisos.  
-
-### 🔒 C. Contrato de API
-Se mantuvo un “contrato” formal de endpoints y estructuras JSON entre backend y frontend para evitar errores en producción.  
-
----
+🐳 Contenerización: Implementada con Dockerfile para empaquetar la app.  
+☁️ Plataforma PaaS: Desplegada en Render.com.  
+🔄 CI/CD: Render compila automáticamente al hacer push en `main`.  
+🔑 Variables de Entorno: Configuradas de forma segura en Render.  
+🌍 URL Pública: https://ap-i-tm.onrender.com
 
 ======================================================================
-                   🏁 8. CONCLUSIONES FINALES
+⚙️ 8. DESAFÍOS Y LECCIONES APRENDIDAS
 ======================================================================
 
-- 🧠 **Evolución Arquitectónica:**  
-  Se consolidó la API como el eje central del ecosistema Kingdom Barber.  
+A. Configuración de CORS:
+  - Problema: Bloqueo de peticiones entre dominios (Vercel ↔ Render).
+  - Solución: Implementación manual de políticas CORS en Spring Boot.
 
-- 🔗 **Consistencia Global:**  
-  Todos los clientes consumen una única fuente de datos.  
+B. Imágenes Base64:
+  - Problema: Respuestas JSON pesadas.
+  - Solución: Se propone migrar a almacenamiento en la nube (ej. AWS S3).
 
-- ⚙️ **Escalabilidad y Mantenimiento:**  
-  La arquitectura modular permite incorporar nuevas capas (como una app móvil).  
+C. Arranque en Frío (Cold Start):
+  - Problema: Render “duerme” instancias inactivas.
+  - Solución: Se recomienda plan pago o mantener pings periódicos.
 
-- 💪 **Logro Técnico:**  
-  Integración exitosa entre **Java/Spring**, **React/Next.js** y **Python/Streamlit**.  
-
----
-
-El proyecto **AP_I_TM - Kingdom Barber** representa un paso firme hacia una **plataforma digital completa**, mostrando dominio en programación orientada a objetos, diseño de APIs y buenas prácticas de desarrollo backend.
+D. Mapeo de Entidades:
+  - Problema: Relaciones @ManyToMany generaban bucles JSON.
+  - Solución: Uso de @JsonIgnore y optimización de FetchType.
 
 ======================================================================
-                     ✨ FIN DEL DOCUMENTO
+🏁 9. CONCLUSIONES FINALES
+======================================================================
+
+✅ Evolución Arquitectónica: API consolidada como fuente única de verdad.  
+🔗 Consistencia: Sincronización total entre front-end y back-end.  
+⚙️ Escalabilidad: Lista para expandirse a móvil o nuevos módulos.  
+💪 Logro Técnico: Integración completa entre Java, React y Spring Boot.  
+
+El proyecto AP_I_TM - Kingdom Barber demuestra dominio en POO, diseño de APIs RESTful y despliegue profesional.
+
+======================================================================
+✨ FIN DEL DOCUMENTO
 ======================================================================
