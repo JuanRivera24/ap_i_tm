@@ -22,7 +22,7 @@ public void addCorsMappings(CorsRegistry registry) {
     registry.addMapping("/**")
             .allowedOrigins(
                 "http://localhost:3000",
-                "https://front-beta-sable.vercel.app/" // <-- AÑADE TU URL DE VERCEL AQUÍ
+                "https://front-beta-sable.vercel.app/" 
             )
             .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
             .allowedHeaders("*")
